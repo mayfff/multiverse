@@ -5,6 +5,7 @@ import coursework.multiverse.entity.User;
 import coursework.multiverse.service.UserService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -52,6 +53,7 @@ public class AuthController {
         return "redirect:/register?success";
     }
 
+    @PreAuthorize("isAuthenticated()")
     @GetMapping("/users")
     public String showUsers(Model model) {
         List<UserDto> users = userService.findAllUsers();

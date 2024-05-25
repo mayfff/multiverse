@@ -2,20 +2,21 @@ package coursework.multiverse.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 @Data
 public class UserDto {
-    @NotEmpty
+    @NotEmpty(message = "firstName should not be empty")
     private String firstName;
 
-    @NotEmpty
+    @NotEmpty(message = "lastName should not be empty")
     private String lastName;
 
     @NotEmpty(message = "Email should not be empty")
-    @Email
+    @Email(message = "Please, enter an email")
     private String email;
 
-    @NotEmpty(message = "Password should not be empty")
+    @Size(min = 8, max = 255, message = "Password should be 8 or more characters long!")
     private String password;
 }

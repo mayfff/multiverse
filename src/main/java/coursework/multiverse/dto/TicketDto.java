@@ -7,6 +7,10 @@ import lombok.Data;
 public class TicketDto {
     @NotEmpty
     private String movieTitle;
+
     @NotEmpty
     private String ticketType;
+
+    @NotEmpty
+    private String time;
 }

@@ -11,8 +11,12 @@ public class Ticket {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(nullable = false)
     private String movieTitle;
 
+    @Column(nullable = false)
     private String ticketType;
 
+    @Column(nullable = false)
+    private String time;
 }

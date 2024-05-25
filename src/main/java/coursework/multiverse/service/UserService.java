@@ -2,7 +2,6 @@ package coursework.multiverse.service;
 
 import coursework.multiverse.dto.UserDto;
 import coursework.multiverse.entity.User;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
