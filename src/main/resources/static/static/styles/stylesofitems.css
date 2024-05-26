@@ -1,0 +1,36 @@
+
+.movie-cover {
+    border-radius: 10px;
+}
+
+.movie-header-container {
+    display: flex;
+}
+
+.buy-ticket-box {
+    flex-grow: 1;
+}
+
+.buy-ticket-box a:hover {
+    background: linear-gradient(90deg, #7e47cb 0%, #EDB7D4 100%);
+    border-radius: 5px;
+}
+
+.buy-ticket-box>a {
+    width: 100%;
+}
+
+.movie-title {
+    margin-bottom: 2rem;
+    margin-left: 0.5rem;
+    margin-right: 2rem;
+}
+
+
+.describe-movie {
+    margin-top: 2rem;
+}
+
+.describe-movie>h4 {
+    margin-bottom: 1rem;
+}
