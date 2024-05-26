@@ -1,0 +1,47 @@
+body {
+    width: 100%;
+    height: 100%;
+    background-color: #0E002C;
+    color: #fff;
+}
+
+.profile-container {
+    padding: 20px;
+    padding-bottom: 150px;
+}
+
+.profile-container .row.row-profile-container {
+    justify-content: left;
+}
+
+.title-container>h3 {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.title-container {
+    padding: 20px;
+}
+
+.tickets-container {
+    margin-left: 20px;
+    padding: 20px;
+    box-shadow: 1px 0px 16px 3px #7e47cb;
+    border-radius: 10px;
+}
+
+.tickets-column-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ticket-info {
+    margin-right: 30px;
+}
+
+.col-lg-5>h4 {
+    padding-left: 20px;
+    padding-bottom: 10px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
