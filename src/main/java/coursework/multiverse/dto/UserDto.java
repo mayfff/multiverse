@@ -7,13 +7,9 @@ import lombok.Data;
 
 @Data
 public class UserDto {
-    @NotEmpty(message = "firstName should not be empty")
-    private String firstName;
+    @NotEmpty(message = "Name should not be empty")
+    private String name;
 
-    @NotEmpty(message = "lastName should not be empty")
-    private String lastName;
-
-    @NotEmpty(message = "Email should not be empty")
     @Email(message = "Please, enter an email")
     private String email;
 

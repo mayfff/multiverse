@@ -12,6 +12,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.thymeleaf.extras.springsecurity6.dialect.SpringSecurityDialect;
 
 @Configuration
 @EnableWebSecurity
@@ -27,20 +28,38 @@ public class SpringSecurity {
     }
 
     @Bean
+    public SpringSecurityDialect springSecurityDialect(){
+        return new SpringSecurityDialect();
+    }
+
+    @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests((authorize) ->
-                        authorize.requestMatchers("/register").permitAll()
-                                .requestMatchers("/index").permitAll()
+                        authorize.requestMatchers("/index").permitAll()
+                                .requestMatchers("/signup/**").permitAll()
+                                .requestMatchers("/login").permitAll()
+                                .requestMatchers("/1").permitAll()
+                                .requestMatchers("/2").permitAll()
+                                .requestMatchers("/3").permitAll()
+                                .requestMatchers("/4").permitAll()
+                                .requestMatchers("/5").permitAll()
+                                .requestMatchers("/6").permitAll()
+                                .requestMatchers("/7").permitAll()
+                                .requestMatchers("/8").permitAll()
+                                .requestMatchers("/9").permitAll()
+                                .requestMatchers("/10").permitAll()
+                                .requestMatchers("/11").permitAll()
                 ).formLogin(
                         form -> form
                                 .loginPage("/login")
                                 .loginProcessingUrl("/login")
-                                .defaultSuccessUrl("/index")
+                                .defaultSuccessUrl("/")
                                 .permitAll()
                 ).logout(
                         logout -> logout
                                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                                .logoutSuccessUrl("/")
                                 .permitAll()
                 );
         return http.build();
