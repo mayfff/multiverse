@@ -35,7 +35,7 @@ public class TicketServiceImpl implements TicketService {
     public void saveTicket(TicketDto ticketDto) {
         Ticket ticket = new Ticket();
         ticket.setMovieTitle(ticketDto.getMovieTitle());
-        ticket.setTicketType(ticketDto.getTicketType());
+        ticket.setAmount(ticketDto.getAmount());
         ticket.setTime(ticketDto.getTime());
         ticketRepository.save(ticket);
 

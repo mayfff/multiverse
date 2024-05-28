@@ -9,8 +9,8 @@ public class TicketDto {
     private String movieTitle;
 
     @NotEmpty
-    private String ticketType;
+    private String time;
 
     @NotEmpty
-    private String time;
+    private int amount;
 }

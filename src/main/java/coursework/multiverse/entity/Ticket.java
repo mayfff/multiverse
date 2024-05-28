@@ -15,8 +15,8 @@ public class Ticket {
     private String movieTitle;
 
     @Column(nullable = false)
-    private String ticketType;
+    private String time;
 
     @Column(nullable = false)
-    private String time;
+    private int amount;
 }

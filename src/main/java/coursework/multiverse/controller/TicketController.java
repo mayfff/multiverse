@@ -2,8 +2,8 @@ package coursework.multiverse.controller;
 
 import coursework.multiverse.dto.TicketDto;
 import coursework.multiverse.entity.Ticket;
-import coursework.multiverse.entity.TicketGrant;
 import coursework.multiverse.entity.User;
+import coursework.multiverse.repository.MovieRepository;
 import coursework.multiverse.repository.UserRepository;
 import coursework.multiverse.service.TicketService;
 import lombok.AllArgsConstructor;
@@ -13,32 +13,32 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @Controller
 @AllArgsConstructor
-@RequestMapping("/tickets")
 public class TicketController {
     private TicketService ticketService;
     private UserRepository userRepository;
+    private MovieRepository movieRepository;
 
     @PreAuthorize("isAuthenticated()")
-    @GetMapping()
-    public String showTicketsForm(Model model) {
-        model.addAttribute("ticketDto", new TicketDto());
-        return "tickets_buy";
+    @GetMapping("/{id}/buy")
+    public String showTicketsForm(Model model, @PathVariable Long id) {
+        TicketDto ticketDto = new TicketDto();
+        ticketDto.setMovieTitle(movieRepository.findById(id).get().getTitle());
+        model.addAttribute("ticket", ticketDto);
+        return "buy-ticket";
     }
 
     @PreAuthorize("isAuthenticated()")
-    @PostMapping("/buy")
-    public String buyTicket(@ModelAttribute("ticketDto") TicketDto ticketDto, Model model) {
+    @PostMapping("/save/ticket")
+    public String buyTicket(@ModelAttribute("ticketDto") TicketDto ticketDto) {
+        System.out.println(ticketDto.toString());
         ticketService.saveTicket(ticketDto);
-        return "redirect:/tickets?success";
+        return "redirect:/profile";
     }
 
     @PreAuthorize("isAuthenticated()")

@@ -14,7 +14,4 @@ public class Movie {
 
     @Column(nullable = false)
     private String title;
-
-    @Column(nullable = false)
-    private String description;
 }
