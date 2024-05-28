@@ -1,7 +1,10 @@
 package coursework.multiverse.controller;
 
 import coursework.multiverse.dto.UserDto;
+import coursework.multiverse.entity.Ticket;
+import coursework.multiverse.entity.TicketGrant;
 import coursework.multiverse.entity.User;
+import coursework.multiverse.repository.TicketGrantRepository;
 import coursework.multiverse.service.UserService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -17,9 +20,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Controller
 @AllArgsConstructor
 public class MainPageController {
+    private final TicketGrantRepository ticketGrantRepository;
     private UserService userService;
 
     @GetMapping()
@@ -43,8 +50,12 @@ public class MainPageController {
         }
 
         User user = userService.findByEmail(email);
-
         model.addAttribute("user", user);
+
+        List<TicketGrant> ticketGrants = ticketGrantRepository.findByUserId(user.getId());
+        List<Ticket> tickets = ticketGrants.stream().map(TicketGrant::getTicket).toList();
+        model.addAttribute("tickets", tickets);
+
         return "profile";
     }
 

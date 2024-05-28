@@ -8,7 +8,7 @@ public class TicketDto {
     @NotEmpty
     private String movieTitle;
 
-    @NotEmpty
+    @NotEmpty(message = "Оберіть час сеансу")
     private String time;
 
     @NotEmpty

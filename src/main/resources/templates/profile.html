@@ -74,14 +74,13 @@
                         </div>
                     </div>
 
-                    <h4 class="">Придбані квитки</h4>
-                    <div class="title-container tickets-container .container-fluid">
-                        
+                    <h4>Придбані квитки</h4>
+                    <div class="title-container tickets-container container-fluid ticket" th:each="ticket : ${tickets}">
                         <div class="tickets-column-container">
                             <div class="ticket-info">
                                 <div class="row">
                                     <div class="col frs-col">
-                                        <h5>Ґодзілла та Конґ : Нова імперія</h5>
+                                        <h5 th:text="${ticket.movieTitle}"></h5>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -89,28 +88,22 @@
                                         <p>Час:</p>
                                     </div>
                                     <div class="col scnd-col">
-                                        <p>--:--</p>
+                                        <p th:text="${ticket.time}"></p>
                                     </div>
                                     <div class="col frs-col">
                                         <p>Кількість:</p>
                                     </div>
                                     <div class="col scnd-col">
-                                        <p>1</p>
+                                        <p th:text="${ticket.amount}"></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row img-of-movie">
-                            <div class="col frs-col">
-                                <img src="../static/images/godzillaxkong.png" class="movie-cover" alt="Godzilla x Kong" style="height: 100px;">
-                            </div>
-                        </div>
                     </div>
-
+                    <div class="col-lg-6"></div>
                 </div>
-                <div class="col-lg-6"></div>
             </div>
         </div>
-
     </section>
 
     <footer>

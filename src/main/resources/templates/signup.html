@@ -57,16 +57,22 @@
                     <span class="icon"><img th:src="@{/images/usericon.png}" alt="user icon" style="height: 15px;"></span>
                     <input type="text" id="name" name="name" th:field="*{name}">
                     <label>Ім'я</label>
+                      <p th:errors = "*{name}" class="text-danger"
+                         th:if="${#fields.hasErrors('name')}"></p>
                   </div>
                   <div class="input-box">
                     <span class="icon"><img th:src="@{/images/emailicon.png}" alt="email icon" style="height: 15px;"></span>
                     <input type="email" id="email" name="email" th:field="*{email}">
                     <label>Пошта</label>
+                      <p th:errors = "*{email}" class="text-danger"
+                         th:if="${#fields.hasErrors('email')}"></p>
                   </div>
                   <div class="input-box">
                     <span class="icon"><img th:src="@{/images/Icon-lock.png}" alt="lock icon" style="height: 20px;"></span>
                     <input type="password" id="password" name="password" th:field="*{password}">
                     <label>Пароль</label>
+                      <p th:errors = "*{password}" class="text-danger"
+                         th:if="${#fields.hasErrors('password')}"></p>
                   </div>
                   <button type="submit" class="btn-submit">Зареєструватися</button>
                   <div class="login-register">

@@ -51,11 +51,14 @@
     <section class="login-page">
         <div class="wrapper">
             <div class="form-box login">
+                <div th:if="${param.error}">
+                    <div class="alert alert-danger">Неправильна пошта чи пароль</div>
+                </div>
               <h4>Увійти</h4>
               <form id="loginForm" th:action="@{/login}" method="post">
                 <div class="input-box">
                   <span class="icon"><img th:src="@{/images/emailicon.png}" alt="email icon" style="height: 15px;"></span>
-                  <input type="email" id="username" name="username">
+                  <input type="text" id="username" name="username">
                   <label>Пошта</label>
                 </div>
                 <div class="input-box">

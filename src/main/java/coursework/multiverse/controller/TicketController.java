@@ -40,31 +40,4 @@ public class TicketController {
         ticketService.saveTicket(ticketDto);
         return "redirect:/profile";
     }
-
-    @PreAuthorize("isAuthenticated()")
-    @GetMapping("/get")
-    public String getTickets(Model model) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String email = null;
-
-        if (authentication != null) {
-            Object principal = authentication.getPrincipal();
-            if (principal instanceof UserDetails) {
-                email = ((UserDetails) principal).getUsername();
-            } else {
-                email = principal.toString();
-            }
-        }
-
-        if (email != null) {
-            User user = userRepository.findByEmail(email);
-            if (user != null) {
-                List<Ticket> tickets = ticketService.findByUserId(user.getId());
-                model.addAttribute("tickets", tickets);
-                return "tickets";
-            }
-        }
-
-        return "redirect:/tickets";
-    }
 }

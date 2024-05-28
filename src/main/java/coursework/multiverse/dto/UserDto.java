@@ -7,12 +7,12 @@ import lombok.Data;
 
 @Data
 public class UserDto {
-    @NotEmpty(message = "Name should not be empty")
+    @NotEmpty(message = "Ім`я не може бути порожнім")
     private String name;
 
-    @Email(message = "Please, enter an email")
+    @Email(message = "Введіть пошту", regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}")
     private String email;
 
-    @Size(min = 8, max = 255, message = "Password should be 8 or more characters long!")
+    @Size(min = 8, max = 255, message = "Пароль має бути більше ніж 8 символів")
     private String password;
 }

@@ -54,7 +54,7 @@
                 <h4>Квитки на фільм</h4>
                 <h4 class="modal-title" th:object="${ticket}" th:text="*{movieTitle}"></h4>
                 <form th:action="@{/save/ticket}" method="post" th:object="${ticket}">
-                    <!-- Додаємо приховане поле для передачі назви фільму -->
+
                     <input type="hidden" th:field="*{movieTitle}"/>
 
                     <p>Оберіть сеанс:</p>
