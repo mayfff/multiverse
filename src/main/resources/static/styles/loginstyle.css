@@ -20,7 +20,7 @@ section {
 .wrapper {
     display: flex;
     width: 400px;
-    height: 480px;
+    height: 600px;
     justify-content: center;
     align-items: center;
     background-color: #0e002c59;

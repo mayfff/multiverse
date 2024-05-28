@@ -4,6 +4,40 @@
     box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #0E002C;
+    color: #fff;
+}
+section {
+    flex: 1 1 0;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+}
+
+.movie-page {
+    display: flex;
+    flex-direction: column;
+}
+
+.movie-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0;
+    gap: 20px;
+}
+
+.movie-cover {
+    border-radius: 10px;
+}
+
 /* header, navbar */
 .container-fluid {
     background-color: #0E002C;
