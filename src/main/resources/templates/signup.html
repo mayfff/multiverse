@@ -62,7 +62,7 @@
                   </div>
                   <div class="input-box">
                     <span class="icon"><img th:src="@{/images/emailicon.png}" alt="email icon" style="height: 15px;"></span>
-                    <input type="email" id="email" name="email" th:field="*{email}">
+                    <input type="text" id="email" name="email" th:field="*{email}">
                     <label>Пошта</label>
                       <p th:errors = "*{email}" class="text-danger"
                          th:if="${#fields.hasErrors('email')}"></p>

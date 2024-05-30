@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Controller
 @AllArgsConstructor
@@ -84,7 +83,7 @@ public class MainPageController {
 
         if (existingUser != null && existingUser.getEmail() != null && !existingUser.getEmail().isEmpty()) {
             result.rejectValue("email", null,
-                    "There is already an account registered with the same email");
+                    "Вже існує аккаунт з такою поштою");
         }
 
         if (result.hasErrors()) {
@@ -92,7 +91,6 @@ public class MainPageController {
             return "signup";
         }
 
-        System.out.println(userDto.toString());
         userService.saveUser(userDto);
         return "redirect:/login";
     }
