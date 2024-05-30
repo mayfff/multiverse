@@ -50,7 +50,7 @@
 
     <section class="registration-page">
         <div class="wrapper">
-            <div class="form-box buy-ticket-details">
+            <div class="form-box buy-ticket-details ticket-form">
                 <h4>Квитки на фільм</h4>
                 <h4 class="modal-title" th:object="${ticket}" th:text="*{movieTitle}"></h4>
                 <form th:action="@{/save/ticket}" method="post" th:object="${ticket}">
